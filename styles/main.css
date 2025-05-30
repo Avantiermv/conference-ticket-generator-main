@@ -27,5 +27,8 @@ body{
 }
 
 main{
-    
+    background: url('../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg')bottom no-repeat, url('../assets/images/pattern-squiggly-line-top.svg')top right no-repeat, url('../assets/images/pattern-lines.svg');
+    background-size: contain, contain, cover;
+
+    padding: 30px;
 }
