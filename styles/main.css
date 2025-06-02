@@ -15,7 +15,7 @@
     --Orange500: hsl(7, 88%, 67%);
     --Orange700: hsl(7, 71%, 60%);
 
-    /*Gradient (text): hsl(7, 86%, 67%) to hsl(0, 0%, 100%);*/
+    --gradient-text: linear-gradient(to right, hsl(7, 86%, 67%),  hsl(0, 0%, 100%));
 }
 
 /*mobile-first*/
@@ -27,8 +27,10 @@ body{
 }
 
 main{
-    background: url('../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg')bottom no-repeat, url('../assets/images/pattern-squiggly-line-top.svg')top right no-repeat, url('../assets/images/pattern-lines.svg');
+    background: url('../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg')bottom no-repeat, url('../assets/images/pattern-squiggly-line-top.svg')top right no-repeat, url('../assets/images/pattern-lines.svg') top center no-repeat;
     background-size: contain, contain, cover;
+    
 
-    padding: 30px;
+    width: 100%;
+    height: 100%;
 }
