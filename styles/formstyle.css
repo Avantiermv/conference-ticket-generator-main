@@ -53,6 +53,10 @@ input{
     border-radius: 15px;
     border-style: dashed;
     border-color: var(--Neutral500);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 input[type="text"]{
@@ -87,6 +91,19 @@ input[type="button"]{
     height: 59px;
     font-size: 19px;
     font-weight: bolder;
+}
+
+
+input[type="text"]:hover, input[type="email"]:hover, #input-image:hover{
+    cursor: pointer;
+    transition: 0.5s;
+    background-color: hsla(246, 15%, 58%, 0.541);
+}
+
+input[type="button"]:hover{
+    cursor: pointer;
+    background-color: hsl(7, 88%, 67%);
+    transition: 0.5s
 }
 
 

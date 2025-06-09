@@ -24,16 +24,11 @@
 /*mobile-first*/
 
 body{
-    background-image: url('../assets/images/background-mobile.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url('../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg')bottom no-repeat, url('../assets/images/pattern-squiggly-line-top.svg')top right no-repeat, url('../assets/images/pattern-lines.svg') top center no-repeat, url('../assets/images/background-mobile.png') no-repeat;
+    background-size: contain, contain, cover, cover;
 }
 
 main{
-    background: url('../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg')bottom no-repeat, url('../assets/images/pattern-squiggly-line-top.svg')top right no-repeat, url('../assets/images/pattern-lines.svg') top center no-repeat;
-    background-size: contain, contain, cover;
-    
-
     width: 100%;
     height: 100%;
 
