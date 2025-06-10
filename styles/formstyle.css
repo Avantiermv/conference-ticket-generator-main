@@ -30,7 +30,7 @@ form{
     flex-flow: column wrap;
 }
 
-label{
+label, p{
     color: var(--Neutral300);
     font-size: 18px;
     font-weight: 600;
@@ -47,16 +47,37 @@ input{
     margin-bottom: 45px;
 }
 
+input[type="file"]{
+    display: none;
+}
 
-#input-image{
-    height: 90px;
+.file-upload{
+    height: 95px;
     border-radius: 15px;
     border-style: dashed;
     border-color: var(--Neutral500);
 
     display: flex;
+    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
+
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.image-upload{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url('../assets/images/icon-upload.svg') no-repeat;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: var(--Neutral500);
+    width: 50px;
+    height: 50px;
+    margin: 5px;
 }
 
 input[type="text"]{
@@ -75,14 +96,6 @@ input[type="email"]{
     font-size: 15px;
 }
 
-input[type="text"]{
-    border-style: solid;
-    border-radius: 15px;
-    height: 35px;
-    color: var(--Neutral300);
-    font-size: 15px;
-}
-
 input[type="button"]{
     border-radius: 15px;
     border-style: none;
@@ -93,8 +106,7 @@ input[type="button"]{
     font-weight: bolder;
 }
 
-
-input[type="text"]:hover, input[type="email"]:hover, #input-image:hover{
+input[type="text"]:hover, input[type="email"]:hover, .file-upload:hover{
     cursor: pointer;
     transition: 0.5s;
     background-color: hsla(246, 15%, 58%, 0.541);
@@ -104,6 +116,10 @@ input[type="button"]:hover{
     cursor: pointer;
     background-color: hsl(7, 88%, 67%);
     transition: 0.5s
+}
+
+@media screen and (min-width: 1025px){
+    
 }
 
 
