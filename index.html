@@ -5,44 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <title>Frontend Mentor | Conference ticket generator</title>
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/formstyle.css">
+  <link rel="stylesheet" href="assets/styles/main.css">
+  <link rel="stylesheet" href="assets/styles/formstyle.css">
   <link rel="stylesheet" href="">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
 </head>
 <body>
 
-  <main>
+  
 
-    <div class="logo"><img src="assets/images/logo-full.svg" alt=""></div>
-    <div class="first-paragraphs">
-      <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
-      <h2>Secure your spot at next year's biggest coding conference.</h2>
+    <div class="content">
+      <div class="logo"><img src="assets/images/logo-full.svg" alt=""></div>
+      <div class="first-paragraphs">
+        <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+        <h2>Secure your spot at next year's biggest coding conference.</h2>
+      </div>
+      <form action="">
+        <p>Upload File</p>
+        <label for="input-image" class="file-upload">
+          <div class="image-upload"><img src="assets/images/icon-upload.svg" alt=""></div>
+          Drag and drop or click to upload
+        </label>
+        <input type="file" name="input-image" id="input-image">
+        <label for="input-name">Full name</label>
+        <input type="text" name="input-name" id="input-name">
+        <label for="input-email">Email address</label>
+        <input type="email" name="input-email" id="input-email" placeholder="example@email.com">
+        <label for="input-github-name">Github username</label>
+        <input type="text" name="input-github-name" id="input-github-name" placeholder="@yourusername">
+        <input type="submit" value="Generate my ticket">
+      </form>
     </div>
 
-    <form action="">
+    <div class="loading">
+      <div id="animation-container" style="width: 300px; height: 300px;"></div>
+    </div>
 
-      <p>Upload File</p>
-      <label for="input-image" class="file-upload">
-        <div class="image-upload"><img src="assets/images/icon-upload.svg" alt=""></div>
-        Drag and drop or click to upload
-      </label>
-      <input type="file" name="input-image" id="input-image">
+    <div class="generated-ticket">
+      
+    </div>
 
-      <label for="input-name">Full name</label>
-      <input type="text" name="input-name" id="input-name">
-
-      <label for="input-email">Email address</label>
-      <input type="email" name="input-email" id="input-email" placeholder="example@email.com">
-
-      <label for="input-github-name">Github username</label>
-      <input type="text" name="input-github-name" id="input-github-name" placeholder="@yourusername">
-
-      <input type="submit" value="Generate my ticket">
-
-    </form>
-
-  </main>
   
-  <script src="./script/main.js"></script>
+  
+  <script src="assets/script/main.js"></script>
 </body>
 </html>
