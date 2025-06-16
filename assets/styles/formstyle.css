@@ -120,9 +120,8 @@ input[type="submit"]:hover{
     transition: 0.5s
 }
 
-@media screen and (min-width: 1025px){
-    
+@media screen and (min-width: 1024px){
+    form{
+        width: 100%;
+    }
 }
-
-
-

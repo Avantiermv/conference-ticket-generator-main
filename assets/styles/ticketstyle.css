@@ -1,1 +1,36 @@
 @import url(main.css);
+
+.generate-ticket{
+    display: none;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.ticket{
+    background-image: url('../images/pattern-ticket.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    padding: 180px;
+    padding-bottom: 0px;
+}
+
+.spant-text{
+    background-image: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.spant-email{
+    color: var(--Orange700);
+}
+
+@media screen and (min-width: 1024px){
+    
+    .ticket{
+       padding: 230px;
+       padding-bottom: 0px;
+    }
+
+}

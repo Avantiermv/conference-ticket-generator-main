@@ -23,6 +23,10 @@
 
 /*mobile-first*/
 
+html, body{
+    min-height: 100vh;
+}
+
 body{
     background: url('../images/pattern-squiggly-line-bottom-mobile-tablet.svg')bottom no-repeat, url('../images/pattern-squiggly-line-top.svg')top right no-repeat, url('../images/pattern-lines.svg') top center no-repeat, url('../images/background-mobile.png') no-repeat;
     background-size: contain, contain, cover, cover;
@@ -44,6 +48,10 @@ body{
     height: 100%;
 
     margin: auto;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
 
     font-family: var(--font);
 }
@@ -60,30 +68,6 @@ body{
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
-.generate-ticket{
-    display: none;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.ticket{
-    background-image: url('../images/pattern-ticket.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    width: 310px;
-    height: 380px;
-}
-
-.spant-text{
-    background-image: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-
-
 @media screen and (min-width: 1024px){
     body{
         background: url('../images/pattern-squiggly-line-bottom-desktop.svg')bottom left no-repeat, url('../images/pattern-squiggly-line-top.svg')top right no-repeat, url('../images/pattern-lines.svg') top center no-repeat, url('../images/background-desktop.png') no-repeat;
@@ -94,5 +78,4 @@ body{
     .content{
         width: 600px;
     }
-
 }

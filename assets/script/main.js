@@ -8,7 +8,8 @@ class generateTicket{
 const form = document.querySelector('form');
 const divContent = document.querySelector('.content');
 const divGeneratedTicket = document.querySelector('.generate-ticket');
-const spanFullName = document.querySelector('span');
+const spanFullName = document.querySelector('.spant-text');
+const spanEmail = document.querySelector('.spant-email')
 
 form.addEventListener('submit', (e) => {
     e.preventDefault(); 
@@ -16,6 +17,7 @@ form.addEventListener('submit', (e) => {
     divGeneratedTicket.classList.remove('hidden');
     divGeneratedTicket.classList.add('visible');
     spanFullName.innerText = 'Marcos Vinicius silva colares';
+    
 
     setTimeout(() => {
       divContent.style.display = 'none';
