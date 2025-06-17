@@ -110,7 +110,7 @@ input[type="email"]{
     font-size: 15px;
 }
 
-input[type="submit"]{
+button{
     border-radius: 15px;
     border-style: none;
     background-color: var(--Orange700);
@@ -126,7 +126,7 @@ input[type="text"]:hover, input[type="email"]:hover, .file-upload:hover{
     background-color: hsla(246, 15%, 58%, 0.541);
 }
 
-input[type="submit"]:hover{
+button:hover{
     cursor: pointer;
     background-color: hsl(7, 88%, 67%);
     transition: 0.5s

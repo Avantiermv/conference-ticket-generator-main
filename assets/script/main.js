@@ -14,11 +14,12 @@ class generateTicket{
       e.preventDefault();
       const valid = this.validFields();
       const divGeneratedTicket = document.querySelector('.generate-ticket');
+      const divContent = document.querySelector('.content')
       const spanFullName = document.querySelector('.spant-text');
-      const spanEmail = document.querySelector('.spant-email')
 
       if(valid){
         divContent.classList.add('hidden');
+        divGeneratedTicket.classList.remove('hidden');
         divGeneratedTicket.classList.add('visible');
         spanFullName.innerText = 'Marcos Vinicius silva colares';
         
@@ -31,33 +32,23 @@ class generateTicket{
     }
 
     validFields(){
-      const spanInfo = this.form.querySelector('.spant-info');
-      if (spanInfo) {
-        spanInfo.classList.remove('text-error');
-      }
-
       let isValid = true;
 
-      const inputs = this.form.querySelectorAll('input:not([type="submit"])');
-
-      inputs.forEach(field => {
-        if(!field.value.trim()){
-          isValid = false;
-        }
-      })
-
-      if(!isValid){
-        this.errorText();
-      }
+      const inputs = document.querySelectorAll('input');
+        inputs.forEach(input =>{
+          if(!input.value){
+            this.errorText();
+            console.log("Rapaz");
+            isValid = false;
+          }
+        })
 
       return isValid;
     }
 
     errorText(){
-      const spanInfo = document.querySelector('.spant-info');
-      if(spanInfo){
-        spanInfo.classList.add('text-error');
-      }
+      const spaninfo = document.querySelector('.spant-info');
+      spaninfo.classList.add('text-error');
     }
 }
 
