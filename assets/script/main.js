@@ -1,6 +1,36 @@
 class generateTicket{
-    constructor(name, email, githubnName){
-        
+    constructor(){
+        this.form = document.querySelector('form'),
+        this.events();
+    }
+
+    events(){
+      this.form.addEventListener('submit', (e) => {
+        this.handleSubmit(e);
+      })
+    }
+
+    handleSubmit(e){
+      e.preventDefault();
+      const valid = this.validFields();
+    }
+
+    validFields(){
+      let indicator = true;
+
+      for(let textError of this.form.querySelector('.text-error')){
+
+      }
+
+      for(let field of this.form.querySelector('input')){
+        if(!field.value){
+          this.form.errorText(field, "Rapaz");
+        }
+      }
+    }
+
+    errorText(field, message){
+      console.log('rapaz');
     }
 }
 

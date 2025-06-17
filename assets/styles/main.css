@@ -68,6 +68,10 @@ body{
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
+.text-error{
+    
+}
+
 @media screen and (min-width: 1024px){
     body{
         background: url('../images/pattern-squiggly-line-bottom-desktop.svg')bottom left no-repeat, url('../images/pattern-squiggly-line-top.svg')top right no-repeat, url('../images/pattern-lines.svg') top center no-repeat, url('../images/background-desktop.png') no-repeat;
