@@ -69,7 +69,8 @@ body{
 }
 
 .text-error{
-    
+    color: var(--Orange700);
+
 }
 
 @media screen and (min-width: 1024px){
