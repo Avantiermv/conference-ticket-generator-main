@@ -86,12 +86,18 @@ input[type="file"]{
     padding: 10px;
     display: flex;
     align-content: center;
-    margin-bottom: 40px;
     color: var(--Neutral500);
 }
 
-.spant-info img{
-    padding-right: 20px;
+.spant-info-img{
+    padding-right: 10px;
+}
+
+.span-and-svg{
+    display: flex;
+    align-items: center;
+
+    padding: 10px;
 }
 
 input[type="text"]{

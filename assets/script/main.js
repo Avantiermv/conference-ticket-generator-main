@@ -49,37 +49,16 @@ class generateTicket{
     errorText(){
       const spaninfo = document.querySelector('.spant-info');
       spaninfo.classList.add('text-error');
+      spaninfo.textContent = `File too large or there's no file. Please upload a photo under 500KB`;
+
+      const paths = document.querySelectorAll('.span-and-svg path');
+
+      paths.forEach(path =>{
+        path.setAttribute('stroke', 'hsl(7, 71%, 60%)');
+      });
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   new generateTicket();
 });
-
-
-
-// const form = document.querySelector('form');
-// const divContent = document.querySelector('.content');
-// const divGeneratedTicket = document.querySelector('.generate-ticket');
-// const spanFullName = document.querySelector('.spant-text');
-// const spanEmail = document.querySelector('.spant-email')
-
-// form.addEventListener('submit', (e) => {
-//     e.preventDefault(); 
-//     divContent.classList.add('hidden');
-//     divGeneratedTicket.classList.remove('hidden');
-//     divGeneratedTicket.classList.add('visible');
-//     spanFullName.innerText = 'Marcos Vinicius silva colares';
-    
-
-//     setTimeout(() => {
-//       divContent.style.display = 'none';
-//       divGeneratedTicket.style.display = 'flex';
-//     }, 500)
-// });
-
-
-
-
-
-
