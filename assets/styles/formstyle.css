@@ -46,7 +46,6 @@ input{
 
     padding: 5px;
     margin: 5px;
-    margin-bottom: 45px;
 }
 
 input[type="file"]{
@@ -114,6 +113,11 @@ input[type="email"]{
     height: 35px;
     color: var(--Neutral300);
     font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.email-span-error{
+    padding: 15px;
 }
 
 button{
