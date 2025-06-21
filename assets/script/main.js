@@ -32,38 +32,27 @@ class generateTicket{
     }
 
     validFields(){
-      let isValid = true;
+      return true;
+      
+    }
 
-      const inputs = document.querySelectorAll('input');
-
-        for(let texterror of this.form.querySelectorAll('.hidden')){
-          texterror.classList.remove();
-        }
-
-        inputs.forEach(input =>{
-          if(!input.value){
-            this.errorText();
-            isValid = false;
-          }
-        })
-
-      return isValid;
+    validUser(field){
+      const user = field.value;
+      let indicator = true;
+      if(user.length > 12 || user.length < 3){
+        this.errorText();
+        console.log('safoouadf');
+        indicator = false;
+      }
+      if(!user.match(/[a-zA-Z0-9]+$/g)){
+            this.criarErro();
+            indicator = false;
+      }
+      return indicator;
     }
 
     errorText(){
-      const spaninfo = document.querySelector('.spant-info');
-      spaninfo.classList.add('text-error');
-      spaninfo.textContent = `File too large or there's no file. Please upload a photo under 500KB`;
       
-      const spanemailerror = document.querySelectorAll('.email-span-error');
-      spanemailerror.forEach(span =>{
-        span.classList.remove('hidden');
-      })
-      
-      const paths = document.querySelectorAll('.span-and-svg path');
-      paths.forEach(path =>{
-        path.setAttribute('stroke', 'hsl(7, 71%, 60%)');
-      });
     }
 }
 
