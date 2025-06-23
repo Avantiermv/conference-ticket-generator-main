@@ -32,7 +32,10 @@ class generateTicket{
     }
 
     validFields(){
-      return true;
+      let isValid = true;
+
+
+      return isValid;
       
     }
 

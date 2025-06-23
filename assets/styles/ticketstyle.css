@@ -12,8 +12,13 @@
     background-repeat: no-repeat;
     background-size: contain;
 
-    padding: 180px;
-    padding-bottom: 0px;
+    width: 365px;
+    height: 180px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .spant-text{
@@ -24,6 +29,41 @@
 
 .spant-email{
     color: var(--Orange700);
+}
+
+.local-and-username{
+    width: 100%;
+    
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}
+
+.logo-title{
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 10px;
+}
+
+.logo-image{
+    background-image: url('../images/logo-full.svg');
+    background-repeat: no-repeat;
+
+    padding: 15px;
+}
+
+.local-date{
+
+}
+
+.local-date, .logo-image{
+    margin: 4px;
+}
+
+
+
+.div-random-num{
+    rotate: 90deg;
 }
 
 @media screen and (min-width: 1024px){
