@@ -27,13 +27,21 @@ class generateTicket{
         setTimeout(() => {
           divContent.style.display = 'none';
           divGeneratedTicket.style.display = 'flex';
-        }, 500)
+        }, 500);
       }
     }
 
     validFields(){
       let isValid = true;
-
+      
+      for(let field of this.form.querySelectorAll('input')){
+        if(!field.value.trim()){
+          isValid = false;
+        }
+        if(!isValid){
+          this.errorText();
+        }
+      }
 
       return isValid;
       
@@ -52,6 +60,14 @@ class generateTicket{
             indicator = false;
       }
       return indicator;
+    }
+
+    validImage(field){
+
+    }
+
+    validName(field){
+
     }
 
     errorText(){
