@@ -35,84 +35,98 @@ class generateTicket{
       let isValid = true;
       
       for(let field of this.form.querySelectorAll('input')){
-        if(!field.value.trim()){
-          isValid = false;
-          const container = document.querySelectorAll('.span-and-svg');
-          container.forEach(value => {
-            value.classList.remove('hidden');
-            value.classList.add('text-error');
-          });
-
-          const spanerrorimg = document.querySelector('.spant-info');
-          spanerrorimg.classList.add('text-error');
-          spanerrorimg.innerText = "File too large or there's no file";
-
-         
-
-          const svg = document.querySelectorAll('.spant-info-img');
-            svg.forEach(svgElement => {
-              const paths = svgElement.querySelectorAll('path');
-
-              paths.forEach(path => {
-                path.style.stroke = 'hsl(7, 71%, 60%)';
-                path.setAttribute('stroke', 'hsl(7, 71%, 60%)');
-              });
-            });
-        }
 
         if(field.classList.contains('fullname')){
-          if(!this.validName(field)){
+          if(!this.validName(field) || !field.value.trim()){
             isValid = false;
+            this.errortext(field);
           }
         }
 
-        if(!isValid){
-          this.errorText();
+        if(field.classList.contains('upload')){
+          if(!this.validImage(field)){
+            isValid = false;
+            this.errortext(field);
+          }
         }
-      }
 
-      
+
+
+      }
 
       return isValid;
     }
 
     validName(field){
-      const user = field.value;
+      const name = field.value;
       let indicator = true;
-      if(user.length > 30 || user.length < 3){
-        this.errorText();
+      if(name.length > 30 || name.length <= 2){
         indicator = false;
       }
-      if(!user.match(/[^a-zà-ú]/gi)){
-            this.errorText();
+      if(!name.match(/[^a-zà-ú]/gi)){
             indicator = false;
       }
       return indicator;
-    }
-
-    validImage(field){
-
     }
 
     validUser(field){
       const user = field.value;
       let indicator = true;
       if(user.length > 12 || user.length < 3){
-        this.errorText();
         indicator = false;
       }
       if(!user.match(/[a-zA-Z0-9]+$/g)){
-            this.errorText();
             indicator = false;
       }
       return indicator;
     }
 
-    errorText(){
-      
+    validImage(field){
+      const image = field.value;
+      let indicator = true;
+
+      if(!image || image.trim() === ''){
+        console.log("Imagem invalida");
+        indicator = false;
+      }
+      return indicator;
     }
 
-    clearError(){
+    errortext(input){
+
+      if(input.classList.contains('upload')){
+        input.addEventListener('change', function () {
+          const file = input.files[0];
+
+          if (file) {
+            console.log('Arquivo selecionado:', file);
+            console.log(`Nome: ${file.name}`);
+            console.log(`Tamanho: ${(file.size / 1024).toFixed(2)} KB`);
+            console.log(`Tipo: ${file.type}`);
+          }
+        });
+
+        if(!input.files || input.files.length === 0){
+          const spanerrorimg = document.querySelector('.spant-info');
+          const svgElement = document.querySelector('svg');
+          svgElement.classList.add('spant-error');
+          spanerrorimg.classList.add('text-error');
+          spanerrorimg.innerText = "File too large or there's no file";
+        }
+      }
+      
+      if(input.classList.contains('fullname')){
+        const inputname = input.value;
+
+      }
+
+      if(input.classList.contains('email')){
+        const inputemail = input.value;
+      }
+
+      if(input.classList.contains('user')){
+        const inputuser = input.value;
+      }
 
     }
 }

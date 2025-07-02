@@ -72,6 +72,10 @@ body{
     color: var(--Orange700);
 }
 
+.spant-error path {
+  stroke: hsl(7, 71%, 60%);
+}
+
 
 @media screen and (min-width: 1024px){
     body{
