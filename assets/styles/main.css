@@ -68,13 +68,10 @@ body{
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
-.span-and-svg.text-error .spant-info {
-  color: hsl(7, 71%, 60%);
+.text-error{
+    color: var(--Orange700);
 }
 
-.span-and-svg.text-error path {
-  stroke: hsl(7, 71%, 60%) !important;
-}
 
 @media screen and (min-width: 1024px){
     body{

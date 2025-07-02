@@ -37,15 +37,32 @@ class generateTicket{
       for(let field of this.form.querySelectorAll('input')){
         if(!field.value.trim()){
           isValid = false;
-          console.log('vazios')
+          const container = document.querySelectorAll('.span-and-svg');
+          container.forEach(value => {
+            value.classList.remove('hidden');
+            value.classList.add('text-error');
+          });
+
+          const spanerrorimg = document.querySelector('.spant-info');
+          spanerrorimg.classList.add('text-error');
+          spanerrorimg.innerText = "File too large or there's no file";
+
+         
+
+          const svg = document.querySelectorAll('.spant-info-img');
+            svg.forEach(svgElement => {
+              const paths = svgElement.querySelectorAll('path');
+
+              paths.forEach(path => {
+                path.style.stroke = 'hsl(7, 71%, 60%)';
+                path.setAttribute('stroke', 'hsl(7, 71%, 60%)');
+              });
+            });
         }
 
         if(field.classList.contains('fullname')){
           if(!this.validName(field)){
-            console.log('Nome');
             isValid = false;
-          }else{
-            console.log('Nome certo');
           }
         }
 
@@ -92,18 +109,7 @@ class generateTicket{
     }
 
     errorText(){
-      const container = document.querySelector('.span-and-svg');
-      container.classList.add('text-error');
-      const spanerror = container.querySelector('.spant-info');
-      spanerror.innerText = "File too large or there's no file";
-
-      const svg = container.querySelector('svg');
-      const paths = svg.querySelectorAll('path');
-
-      paths.forEach(path => {
-        path.style.stroke = 'hsl(7, 71%, 60%)';
-        path.setAttribute('stroke', 'hsl(7, 71%, 60%)');
-      });
+      
     }
 
     clearError(){
