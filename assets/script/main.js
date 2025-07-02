@@ -2,6 +2,8 @@ class generateTicket{
     constructor(){
         this.form = document.querySelector('form');
         this.events();
+        this.spanerrorimg = document.querySelector('.spant-info');
+        this.svgElement = document.querySelector('svg');
     }
 
     events(){
@@ -50,10 +52,7 @@ class generateTicket{
           }
         }
 
-
-
       }
-
       return isValid;
     }
 
@@ -82,10 +81,10 @@ class generateTicket{
     }
 
     validImage(field){
-      const image = field.value;
+      const image = field.files[0];
       let indicator = true;
 
-      if(!image || image.trim() === ''){
+      if(!image || image.size > 500 * 1024){
         console.log("Imagem invalida");
         indicator = false;
       }
@@ -94,27 +93,19 @@ class generateTicket{
 
     errortext(input){
 
-      if(input.classList.contains('upload')){
-        input.addEventListener('change', function () {
-          const file = input.files[0];
+     if (input.classList.contains('upload')) {
+        const file = input.files[0];
 
-          if (file) {
-            console.log('Arquivo selecionado:', file);
-            console.log(`Nome: ${file.name}`);
-            console.log(`Tamanho: ${(file.size / 1024).toFixed(2)} KB`);
-            console.log(`Tipo: ${file.type}`);
-          }
-        });
+        this.svgElement.classList.add('spant-error');
+        this.spanerrorimg.classList.add('text-error');
 
-        if(!input.files || input.files.length === 0){
-          const spanerrorimg = document.querySelector('.spant-info');
-          const svgElement = document.querySelector('svg');
-          svgElement.classList.add('spant-error');
-          spanerrorimg.classList.add('text-error');
-          spanerrorimg.innerText = "File too large or there's no file";
+        if (!file) {
+          this.spanerrorimg.innerText = "There's no file";
+        } else if (file.size > 500 * 1024) {
+          this.spanerrorimg.innerText = "File too large";
         }
       }
-      
+
       if(input.classList.contains('fullname')){
         const inputname = input.value;
 
