@@ -185,9 +185,7 @@ class generateTicket{
         validUser.classList.remove('text-error');
         validUser.classList.add('hidden');
       }
-}
-
-    
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
