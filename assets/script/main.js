@@ -4,6 +4,10 @@ class generateTicket{
         this.events();
         this.spanerrorimg = document.querySelector('.spant-info');
         this.svgElement = document.querySelector('svg');
+        this.imageInput = document.getElementById('image-input');
+        this.previewContainer = document.querySelector('.avatar-upload');
+
+        this.setUpPreviewImage();
     }
 
     events(){
@@ -87,6 +91,12 @@ class generateTicket{
         indicator = false;
       }
       return indicator;
+    }
+
+    setUpPreviewImage(){
+      this.imageInput.addEventListener('change', (e) =>{
+        console.log('Deu certo só agora.');
+      })
     }
 
     validName(field){
