@@ -133,11 +133,11 @@ class generateTicket{
     validName(field){
       const name = field.value;
       let indicator = true;
-      if(name.length > 30 || name.length <= 2){
+      if(name.length <= 2){
         indicator = false;
       }
-      if(!name.match(/[^a-zà-ú]/gi)){
-            indicator = false;
+      if(!name.match(/^[A-Za-zÀ-ÿ\s]+$/)){
+        indicator = false;
       }
       return indicator;
     }
@@ -157,11 +157,11 @@ class generateTicket{
     validUser(field){
       const user = field.value;
       let indicator = true;
-      if(user.length > 12 || user.length < 3){
+      if(user.length < 3){
         indicator = false;
       }
-      if(!user.match(/[a-zA-Z0-9]+$/g)){
-            indicator = false;
+      if(!user.match(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i)){
+        indicator = false;
       }
       return indicator;
     }
@@ -184,21 +184,18 @@ class generateTicket{
         const validName = document.querySelector('.validName');
         validName.classList.add('text-error');
         validName.classList.remove('hidden');
-        console.log('Nome Errado');
       }
 
       if(input.classList.contains('email')){
         const validEmail = document.querySelector('.validEmail');
         validEmail.classList.add('text-error');
         validEmail.classList.remove('hidden');
-        console.log('email.invalido')
       }
 
       if(input.classList.contains('user')){
-        const validUser = document.querySelector('.validUser');
+        const validUser = document.querySelector('.validuser');
         validUser.classList.add('text-error');
         validUser.classList.remove('hidden');
-        console.log('usuário invalido')
       }
     }
 
@@ -222,7 +219,7 @@ class generateTicket{
       }
 
       if (input.classList.contains('user')) {
-        const validUser = document.querySelector('.validUser');
+        const validUser = document.querySelector('.validuser');
         validUser.classList.remove('text-error');
         validUser.classList.add('hidden');
       }
