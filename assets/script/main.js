@@ -8,11 +8,13 @@ class generateTicket{
         this.labelImage = document.querySelector('.image-label');
         this.previewContainer = document.querySelector('.avatar-upload');
         this.avatarImage = document.querySelector('.avatarimage');
+
+        this.changeImageButton = document.querySelector('#label-change-image');
+        this.removeImagebutton = document.querySelector('#label-remove-image');
+        
         
 
         this.setUpPreviewImage();
-        this.removeImage();
-        this.changeImage();
     }
 
     events(){
@@ -47,8 +49,9 @@ class generateTicket{
       
       for(let field of this.form.querySelectorAll('input')){
 
-        if(field.classList.contains('fullname')){
-          if(!this.validName(field) || !field.value.trim()){
+
+        if(field.classList.contains('upload')){
+          if(!this.validImage(field)){
             isValid = false;
             this.errortext(field);
           }else{
@@ -56,8 +59,8 @@ class generateTicket{
           }
         }
 
-        if(field.classList.contains('upload')){
-          if(!this.validImage(field)){
+        if(field.classList.contains('fullname')){
+          if(!this.validName(field) || !field.value.trim()){
             isValid = false;
             this.errortext(field);
           }else{
@@ -105,7 +108,7 @@ class generateTicket{
         if(file){
           this.labelImage.classList.add('hidden');
           this.labelImage.style.display = 'none';
-
+          this.changeImageButton.style.display = 'flex';
           this.previewContainer.style.display = 'flex';
           
           const reader = new FileReader();
@@ -116,10 +119,16 @@ class generateTicket{
           reader.readAsDataURL(file);
         }
       });
+      this.removeImagebutton.addEventListener('click', (e) => {
+        this.imageInput.value = "";             
+        this.avatarImage.src = "";              
+        this.labelImage.classList.remove('hidden');
+        this.labelImage.classList.add('visible');
+        this.labelImage.style.display = "flex";
+        this.changeImageButton.style.display = "none";
+        this.previewContainer.style.display = "none";
+      });
     }
-
-    changeImage(){}
-    removeImage(){}
 
     validName(field){
       const name = field.value;
