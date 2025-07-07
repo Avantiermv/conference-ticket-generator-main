@@ -4,10 +4,15 @@ class generateTicket{
         this.events();
         this.spanerrorimg = document.querySelector('.spant-info');
         this.svgElement = document.querySelector('svg');
-        this.imageInput = document.getElementById('image-input');
+        this.imageInput = document.getElementById('input-image');
+        this.labelImage = document.querySelector('.image-label');
         this.previewContainer = document.querySelector('.avatar-upload');
+        this.avatarImage = document.querySelector('.avatarimage');
+        
 
         this.setUpPreviewImage();
+        this.removeImage();
+        this.changeImage();
     }
 
     events(){
@@ -95,9 +100,26 @@ class generateTicket{
 
     setUpPreviewImage(){
       this.imageInput.addEventListener('change', (e) =>{
-        console.log('Deu certo só agora.');
-      })
+        const file = e.target.files[0];
+        
+        if(file){
+          this.labelImage.classList.add('hidden');
+          this.labelImage.style.display = 'none';
+
+          this.previewContainer.style.display = 'flex';
+          
+          const reader = new FileReader();
+
+          reader.onload = (event) =>{
+            this.avatarImage.src = event.target.result;
+          }
+          reader.readAsDataURL(file);
+        }
+      });
     }
+
+    changeImage(){}
+    removeImage(){}
 
     validName(field){
       const name = field.value;
