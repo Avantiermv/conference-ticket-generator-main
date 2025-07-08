@@ -21,6 +21,10 @@ class generateTicket{
     
     this.setUpPreviewImage();
     this.randomNumber();
+    this.formatDate();
+    this.getCoords();
+    this.reverseGeocode();
+    this.getDateAndLocationString();
   }
 
     events(){
@@ -35,7 +39,9 @@ class generateTicket{
       const divGeneratedTicket = document.querySelector('.generate-ticket');
       const divContent = document.querySelector('.content');
       const ticketfullname = document.querySelector('.name');
-      const ticketusername = document.querySelector('.identifier');
+      const ticketusername = document.querySelector('.identifierp');
+      const indentifiernum = document.querySelector('.rando-num');
+      const dateandlocal = document.querySelector('.date-and-local');
 
       if(valid){
         divContent.classList.add('hidden');
@@ -45,8 +51,11 @@ class generateTicket{
         this.spanFullEmail.innerText = this.fullEmail;
         this.imageAvatar.src = this.avatarImage.src;
         ticketfullname.innerText = this.fullName;
-        ticketusername.innerText = this.username;
-
+        ticketusername.innerText = `@${this.username}`;
+        indentifiernum.innerText = `#${this.randomNumber()}`;
+        this.getDateAndLocationString().then(info => {
+          dateandlocal.innerText = info;
+        })
         setTimeout(() => {
           divContent.style.display = 'none';
           divGeneratedTicket.style.display = 'flex';
@@ -177,7 +186,7 @@ class generateTicket{
     }
 
     randomNumber(){
-      
+      return Math.floor(Math.random() * 90000) + 10000;
     }
 
     errortext(input){
@@ -236,6 +245,47 @@ class generateTicket{
         const validUser = document.querySelector('.validuser');
         validUser.classList.remove('text-error');
         validUser.classList.add('hidden');
+      }
+    }
+
+    formatDate(){
+      const now = new Date();
+      const opts = { month: 'short', day: '2-digit', year: 'numeric' };
+      const formated = new Intl.DateTimeFormat('en-us', opts).format(now);
+      return formated;
+    }
+
+    getCoords(){
+      return new Promise((resolve, reject) => {
+        if(!navigator.geolocation){
+          return reject(new Error('Geolocation not supported'));
+        }
+        navigator.geolocation.getCurrentPosition(
+          pos => resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
+          err => reject(err)
+        );
+      });
+    }
+
+    async reverseGeocode(lat, lon){
+      const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`;
+      const res = await fetch(url, {headers: {'User-agent': 'meu-app/1.0'}});
+      const data = await res.json();
+
+      const city  = data.address.city       || data.address.town    || data.address.village;
+      const state = data.address.state      || data.address.county;
+      return { city, state };
+    }
+
+    async getDateAndLocationString(){
+      try{
+        const dateStr = this.formatDate();
+        const {lat, lon} = await this.getCoords();
+        const {city, state} = await this.reverseGeocode(lat, lon); 
+        return `${dateStr}/${city}, ${state}`;
+      }catch(e){
+        console.error(e);
+        return this.formatDate() + '/location unavailable';
       }
     }
 }
