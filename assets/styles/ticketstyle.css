@@ -70,17 +70,9 @@
     padding: 10px;
 }
 
-.user-image{
-    background-image: url('../images/image-avatar.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
-
+.user-image, .image-avatar{
     width: 50px;
     height: 50px;
-}
-
-.username{
-
 }
 
 .div-random-num{

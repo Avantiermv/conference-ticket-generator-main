@@ -1,21 +1,27 @@
 class generateTicket{
-    constructor(){
-        this.form = document.querySelector('form');
-        this.events();
-        this.spanerrorimg = document.querySelector('.spant-info');
-        this.svgElement = document.querySelector('svg');
-        this.imageInput = document.getElementById('input-image');
-        this.labelImage = document.querySelector('.image-label');
-        this.previewContainer = document.querySelector('.avatar-upload');
-        this.avatarImage = document.querySelector('.avatarimage');
+  constructor(){
+    this.form = document.querySelector('form');
+    this.events();
+    this.spanerrorimg = document.querySelector('.spant-info');
+    this.svgElement = document.querySelector('svg');
+    this.imageInput = document.getElementById('input-image');
+    this.labelImage = document.querySelector('.image-label');
+    this.previewContainer = document.querySelector('.avatar-upload');
+    this.avatarImage = document.querySelector('.avatarimage');
 
-        this.changeImageButton = document.querySelector('#label-change-image');
-        this.removeImagebutton = document.querySelector('#label-remove-image');
-        
-        
+    this.changeImageButton = document.querySelector('#label-change-image');
+    this.removeImagebutton = document.querySelector('#label-remove-image');
 
-        this.setUpPreviewImage();
-    }
+    this.fullName = document.querySelector('.fullname');
+    this.spanFullName = document.querySelector('.spant-text');
+    this.fullEmail = document.querySelector('.email');
+    this.spanFullEmail = document.querySelector('.spant-email');
+    this.username = document.querySelector('.user');
+    this.imageAvatar = document.querySelector('.image-avatar');
+    
+    this.setUpPreviewImage();
+    this.randomNumber();
+  }
 
     events(){
       this.form.addEventListener('submit', (e) => {
@@ -27,15 +33,19 @@ class generateTicket{
       e.preventDefault();
       const valid = this.validFields();
       const divGeneratedTicket = document.querySelector('.generate-ticket');
-      const divContent = document.querySelector('.content')
-      const spanFullName = document.querySelector('.spant-text');
+      const divContent = document.querySelector('.content');
+      const ticketfullname = document.querySelector('.name');
+      const ticketusername = document.querySelector('.identifier');
 
       if(valid){
         divContent.classList.add('hidden');
         divGeneratedTicket.classList.remove('hidden');
         divGeneratedTicket.classList.add('visible');
-        spanFullName.innerText = 'Marcos Vinicius silva colares';
-        
+        this.spanFullName.innerText = this.fullName;
+        this.spanFullEmail.innerText = this.fullEmail;
+        this.imageAvatar.src = this.avatarImage.src;
+        ticketfullname.innerText = this.fullName;
+        ticketusername.innerText = this.username;
 
         setTimeout(() => {
           divContent.style.display = 'none';
@@ -131,39 +141,43 @@ class generateTicket{
     }
 
     validName(field){
-      const name = field.value;
+      this.fullName = field.value;
       let indicator = true;
-      if(name.length <= 2){
+      if(this.fullName.length <= 2){
         indicator = false;
       }
-      if(!name.match(/^[A-Za-zÀ-ÿ\s]+$/)){
+      if(!this.fullName.match(/^[A-Za-zÀ-ÿ\s]+$/)){
         indicator = false;
       }
       return indicator;
     }
 
     validEmail(field){
-      const email = field.value;
+      this.fullEmail = field.value;
       let indicator = true;
 
       const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      if(!regex.test(email)){
+      if(!regex.test(this.fullEmail)){
         indicator = false;
       }
       return indicator;
     }
 
     validUser(field){
-      const user = field.value;
+      this.username = field.value;
       let indicator = true;
-      if(user.length < 3){
+      if(this.username.length < 3){
         indicator = false;
       }
-      if(!user.match(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i)){
+      if(!this.username.match(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i)){
         indicator = false;
       }
       return indicator;
+    }
+
+    randomNumber(){
+      
     }
 
     errortext(input){
