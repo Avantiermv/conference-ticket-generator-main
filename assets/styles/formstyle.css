@@ -142,6 +142,8 @@ input[type="email"]{
     height: 59px;
     font-size: 19px;
     font-weight: bolder;
+
+    text-decoration: 2px solid purple;
 }
 
 input[type="text"]:hover, input[type="email"]:hover{

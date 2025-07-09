@@ -56,12 +56,13 @@ Users should be able to:
 
 ### What I learned
 
-I improve my knowlodge about classes and functions.
+I've improved my understanding of classes and functions in javascript. In addition, I learned about some new functions that I didn't know before, which are to get the location of a person. Very interesting.
 
 ### Continued development
 
+Now, I'm going to delve a little deeper into classes, objects and studying about promises. Also, in my next projects I'll try to consume APIs.
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@Avantiermv](https://www.frontendmentor.io/profile/Avantiermv)
 
